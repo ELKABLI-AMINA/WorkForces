@@ -1,23 +1,35 @@
 package entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Département {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id ;
+    private Long id;
    private String name;
 
-    public Département(Long id, String name) {
-        this.id = id;
+    @OneToMany(mappedBy = "departement" , fetch = FetchType.LAZY)
+    private List<Employé> employes;
+
+
+    public Département(String name) {
         this.name = name;
     }
 
     public Département() {
+    }
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -28,18 +40,10 @@ public class Département {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public String toString() {
         return "Département{" +
-                "id=" + id +
+
                 ", name='" + name + '\'' +
                 '}';
     }

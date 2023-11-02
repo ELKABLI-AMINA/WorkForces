@@ -11,11 +11,14 @@ public class Employé {
     private String name;
     private double salaire;
 
+    @ManyToOne
+    @JoinColumn(name = "departement_id")
+    private Département departement;
 
-    public Employé(Long id, String name, double salaire) {
-        this.id = id;
+    public Employé(String name, double salaire, Département departement) {
         this.name = name;
         this.salaire = salaire;
+        this.departement = departement;
     }
 
     public Employé() {

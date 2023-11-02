@@ -7,5 +7,6 @@ import java.util.List;
 public interface EmployeService {
     public List<Employé> getAllEmploye();
     public void updateEmploye(Employé employé);
-    public void addNewEmployee(Employé employé);
+
+    public Employé save(Employé employé);
 }

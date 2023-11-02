@@ -1,9 +1,12 @@
 package main;
 
 
+import entities.Département;
+import entities.Employé;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import service.DepService;
 import service.EmployeService;
 
 
@@ -11,8 +14,20 @@ import service.EmployeService;
 public class MainApp {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        EmployeService employeService= context.getBean("employeService" , EmployeService.class);
-        System.out.println(employeService.getAllEmploye());
+        DepService depService= context.getBean("DepService" , DepService.class);
+        EmployeService employeService = context.getBean("employeService", EmployeService.class);
+
+        // add département
+        Département dep1= new Département("RH");
+
+        depService.ajouterDepartement(dep1);
+
+        // Créer un employé
+        Employé employe = new Employé("amina", 12345, dep1);
+        employeService.save(employe);
+
+
+
 
 
     }

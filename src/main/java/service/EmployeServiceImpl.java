@@ -18,6 +18,7 @@ public class EmployeServiceImpl implements EmployeService {
     public EmployeServiceImpl() {
     }
 
+
     @Override
     public List<Employé> getAllEmploye() {
         return empRepository.findAll();
@@ -25,11 +26,11 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public void updateEmploye(Employé employé) {
-
+      empRepository.save(employé);
     }
 
     @Override
-    public void addNewEmployee(Employé employé) {
-
+    public Employé save(Employé employé) {
+        return empRepository.save(employé);
     }
 }
