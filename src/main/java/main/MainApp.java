@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import service.DepService;
 import service.EmployeService;
 
+import java.util.List;
+
 
 @Controller
 public class MainApp {
@@ -18,14 +20,19 @@ public class MainApp {
         EmployeService employeService = context.getBean("employeService", EmployeService.class);
 
         // add département
-        Département dep1= new Département("RH");
+      //  Département dep1= new Département("RH");
 
-        depService.ajouterDepartement(dep1);
+      //  depService.ajouterDepartement(dep1);
 
         // Créer un employé
-        Employé employe = new Employé("amina", 12345, dep1);
-        employeService.save(employe);
+      //  Employé employe = new Employé("amina", 12345, dep1);
+       // employeService.save(employe);
 
+        //récupérer tous les employés
+        List<Employé> allEmployees =employeService.getAllEmploye();
+        for (Employé emp : allEmployees) {
+            System.out.println(emp);
+        }
 
 
 
