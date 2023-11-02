@@ -1,9 +1,16 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Employé {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double salaire;
+
 
     public Employé(Long id, String name, double salaire) {
         this.id = id;
