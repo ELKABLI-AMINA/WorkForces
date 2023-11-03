@@ -29,12 +29,18 @@ public class MainApp {
        // employeService.save(employe);
 
         //récupérer tous les employés
-        List<Employé> allEmployees =employeService.getAllEmploye();
+       /* List<Employé> allEmployees =employeService.getAllEmploye();
         for (Employé emp : allEmployees) {
             System.out.println(emp);
         }
 
+        */
 
+        // Récupérer un employé spécifique par son ID
+           Employé employeToUpdate = employeService.getEmployeById(1L);
+           employeToUpdate.setName("Jodia");
+           employeToUpdate.setSalaire(10000);
+           employeService.updateEmploye(employeToUpdate);
 
 
     }

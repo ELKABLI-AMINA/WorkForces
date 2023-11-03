@@ -33,4 +33,9 @@ public class EmployeServiceImpl implements EmployeService {
     public Employé save(Employé employé) {
         return empRepository.save(employé);
     }
+
+    @Override
+    public Employé getEmployeById(long id) {
+        return empRepository.findById(id).orElse(null);
+    }
 }

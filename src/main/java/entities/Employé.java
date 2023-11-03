@@ -11,7 +11,7 @@ public class Employé {
     private String name;
     private double salaire;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "departement_id")
     private Département departement;
 
@@ -54,6 +54,7 @@ public class Employé {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", salaire=" + salaire +
+                ", departement=" + departement +
                 '}';
     }
 }

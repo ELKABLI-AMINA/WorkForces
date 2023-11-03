@@ -9,4 +9,6 @@ public interface EmployeService {
     public void updateEmploye(Employé employé);
 
     public Employé save(Employé employé);
+
+    Employé getEmployeById(long l);;
 }
